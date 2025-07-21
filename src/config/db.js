@@ -1,9 +1,10 @@
-import { config } from 'dotenv';
-config()
 import { getFirestore } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
+import admin from 'firebase-admin';
+import { config } from 'dotenv';
+config()
 
-// Firebase configuration
+// Firebase configuracion base
 const firebaseConfig = {
     apiKey: process.env.APIKEY,
     authDomain: process.env.AUTHDOMAIN,

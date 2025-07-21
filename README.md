@@ -1,60 +1,72 @@
-# Plantilla de servidor con capas Express
+# Practico final para "Talento Tech: Nodejs" == API REST Node.js + Firebase
 
-Este proyecto es una plantilla básica para configurar un servidor con **Express** y **Nodemon**, ideal para iniciar rápidamente nuevos desarrollos en Node.js.
+--Descripcion: Proyecto realizado para la entrega de trabajo practico final, del curso de "Talento tech: Nodejs, en base a los requerimientos dados en el pdf.- url https://gamma.app/docs/Ejercicio-Clae-15-Node-JS-4nrhn17nnthsgsd?mode=doc ..
+**API RESTful para gestión de colecciones y autenticación de usuarios, desarrollada en Node.js, Express y Firebase Firestore.**
+Con algunas modificanes.
+[ Las modificaciones se pensaron para que el proyecto pueda reusarse. Que el cliente pueda crear collecciones con la api, tener auditoria, obtendria de esta manera, una apirest mas generica y adaptable. Pero despues de mucho investigar documentacion, tengo que adaptar firebase admin. Si te intereza saber mas, lee el ultimo mensaje. Gracias. ]
+--
 
 ## Características
 
 - **Express** para gestionar rutas y middleware.
 - **Nodemon** para recargar automáticamente el servidor durante el desarrollo.
+- **Firestore** para base de datos.
+- **JWT** auth de usuario.
 - Configuración minimalista lista para usar.
 
 ---
 
 ## Instalación
 
-### 1. Clonar el repositorio con `degit`
+### Clonar el repositorio
 
-`degit` es una herramienta para clonar plantillas de manera limpia (sin el historial de Git).
+`https://github.com/NazarenoDS/proyectoFinal`
+    cd proyectoFinal
 
-#### Instalar `degit` (si no lo tienes instalado)
+#### Instala las dependencias
+   ```
+   npm install
+   ```
 
-```bash
-npm install -g degit
+#### Configura las variables de entorno
+
+   Crea un archivo `.env` en la raíz del proyecto (puedes copiar el ejemplo):
+   ```
+   cp env.example .env
+   ```
+   Completa los valores según tu proyecto de Firebase y tu configuración JWT.
+
+
+**Variables de entorno**
+El archivo `.env` debe contener:
+
+--env
 ```
-
-#### Clonar el repositorio
-
-```bash
-degit DanielRiverol/template-express-layers carpeta-destino
+APIKEY=tu_apikey_firebase
+AUTHDOMAIN=tu_authdomain_firebase
+PROJECTID=tu_projectid_firebase
+STORAGEBUCKET=tu_storagebucket_firebase
+MESSAGINGSENDERID=tu_messagingsenderid_firebase
+APPID=tu_appid_firebase
+JWT_SECRET=tu_clave_secreta_jwt
 ```
-
-Reemplaza `usuario/repo-nombre` por el nombre del repositorio y `carpeta-destino` por el nombre de la carpeta donde deseas clonar el proyecto.
-
-### 2. Instalar dependencias
-
-Una vez clonado el repositorio, entra en la carpeta del proyecto:
-
-```bash
-cd carpeta-destino
-```
-
-Luego, instala las dependencias:
-
-```bash
-npm install
-```
-
 ---
 
 ## Comandos disponibles
+**npm start**
+**npm run watch**
 
-### Iniciar el servidor
 
-Este comando inicia el servidor en modo desarrollo con Nodemon:
+### Uso
 
-```bash
-npm run dev
+### 1. **Iniciar el servidor**
+
 ```
+npm start
+```
+El servidor correrá en el puerto definido en `.env` o por defecto en `3000`.
+
+---
 
 ### Actualizar dependencias (Opcional)
 
@@ -78,34 +90,31 @@ Una vez completado este proceso, basta con ejecutar el siguiente comando para ac
 npm install
 ```
 
-## Estructura del proyecto
-``` plaintext
-carpeta-destino/
-├── config/                 # Configuraciones generales (DB, variables de entorno, etc.)
-│   └── db.js               # Configuración de la base de datos
-│
-├── controllers/           # Controladores: lógica que responde a las rutas
-│   └── user.controller.js
-│
-├── services/              # Servicios: lógica de negocio reutilizable
-│   └── user.service.js
-│
-├── routes/                # Definición de rutas y middlewares asociados
-│   └── user.routes.js
-│
-├── models/                # Modelos de datos (si usás MongoDB, Sequelize, etc.)
-│   └── user.model.js
-│
-├── middlewares/           # Middlewares personalizados
-│   └── auth.middleware.js
-│
-├── index.js               # Punto de entrada del servidor
-├── package.json           # Dependencias y scripts
-├── README.md              # Documentación del proyecto
+###  **Endpoints principales**
 
-```
----
+...falta completar(se completara en la otra actualizacion debido a una feature que se quiso agregar y necesita pruebas).
+
+## Estructura del proyecto
+proyectoFinal/
+│
+├── src/
+│ ├── config/
+│ ├── controllers/
+│ ├── middlewares/
+│ ├── models/
+│ ├── routes/
+│ ├── services/
+│ └── utils/
+├── .env.example
+├── package.json
+└── README.md
 
 ## Licencia
 
 Este proyecto está licenciado bajo la licencia **MIT**. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
+
+## ✨ Autor
+
+**https://github.com/NazarenoDS**
+
+>Si tenes alguna duda, sugerencias o quieres mejorar el codigo( o ayudarme con la feature que comente ) abri una issue y nos ponemos en contacto. Saludos.-
