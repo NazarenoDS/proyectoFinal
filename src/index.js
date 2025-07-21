@@ -4,7 +4,7 @@ import genericRoute from "./routes/generic.route.js";
 import authRoutes from './routes/auth.routes.js';
 import cors from "cors";
 import dotenv from "dotenv";
-import { collection } from "firebase/firestore";
+//import { collection } from "firebase/firestore";
 dotenv.config();
 
 //settings
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 //routes
 //get
 app.get("/", (req, res) => {
-  res.json({ title: "Servidor Funcionando", collection });
+  res.json({ title: "Servidor Funcionando"/*, collection*/ });
 });
 
 app.use("/api", genericRoute);
