@@ -37,3 +37,6 @@ app.use((req, res) => {
 app.listen(app.get("PORT"), () => {
   console.log(`Server on port http://localhost:${app.get("PORT")}`);
 });
+
+
+export default app;
